@@ -1,8 +1,5 @@
 LED Strip Controller
 ==========================
-Author: Aaron Lucas
-
-Date Created: 2020/12/02
 
 Project Description:
 ---------------------
