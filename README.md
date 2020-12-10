@@ -17,15 +17,15 @@ Colors and Patterns:
 
 The 9 pre-defined colors and their RGB hex values are as follows:
 
-    * Red               [0xC00000]
-    * Green             [0x206000]
-    * Purple            [0x6E00FF]
-    * Orange            [0xFF2000]
-    * Blue              [0x001080]
-    * White             [0x867565]
-    * Pink              [0xFF009A]
-    * Yellow            [0xEA5200]
-    * Light blue/cyan   [0x00777A]
+* Red               [0xC00000]
+* Green             [0x206000]
+* Purple            [0x6E00FF]
+* Orange            [0xFF2000]
+* Blue              [0x001080]
+* White             [0x867565]
+* Pink              [0xFF009A]
+* Yellow            [0xEA5200]
+* Light blue/cyan   [0x00777A]
 
 Theoretically, some of these colors are inaccurate (e.g. the RGB combination for yellow is actually orange), however due to the different intensities of the individual red, green and blue LEDs, these color definitions show the correct color when displayed on the WS2812B LED strip.
 
@@ -43,7 +43,7 @@ Each LED is given its own memory location which defines the RGB color components
 
 Equipment Used:
 ----------------
-    * [Jaycar's 2M Addressable LED Strip](https://www.jaycar.com.au/2m-rgb-led-strip-with-120-x-addressable-w2812b-rgb-leds-arduino-mcu-compatible-5v/p/XC4390) 
-    * [ATtiny85 DIP8](https://www.microchip.com/wwwproducts/en/ATtiny85)
-    * [Jaycar's ISP Programmer (USBasp)](https://www.jaycar.com.au/isp-programmer-for-arduino-and-avr/p/XC4627)
+* [Jaycar's 2M Addressable LED Strip](https://www.jaycar.com.au/2m-rgb-led-strip-with-120-x-addressable-w2812b-rgb-leds-arduino-mcu-compatible-5v/p/XC4390) 
+* [ATtiny85 DIP8](https://www.microchip.com/wwwproducts/en/ATtiny85)
+* [Jaycar's ISP Programmer (USBasp)](https://www.jaycar.com.au/isp-programmer-for-arduino-and-avr/p/XC4627)
 
