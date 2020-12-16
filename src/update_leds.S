@@ -31,6 +31,7 @@
 #define			bit_count	r18
 #define			byte_to_send	r19
 #define			reset_counter	r20
+#define			sreg_save	r21
 
 #define			byte_count_l	r24
 #define			byte_count_h	r25
@@ -39,6 +40,7 @@
 #define			byte_addr_l	r30
 #define			byte_addr_h	r31
 
+.equ			SREG,		0x3F
 .equ			PORTB,		0x18
 
 .text
@@ -46,12 +48,11 @@
 .global			update_leds
 	.type		update_leds, @function
 update_leds:
+			in	sreg_save, SREG				; Preserve status register
 			movw	byte_addr_l, p_colors
 			ldi	byte_count_l, lo8(NUM_BYTES+1)
 			ldi	byte_count_h, hi8(NUM_BYTES+1)
 			ldi	reset_counter, 200
-       ; 		ldi	byte_addr_l, lo8(led_buffer)
-       ; 		ldi	byte_addr_h, hi8(led_buffer)
 
 reset_loop:		
 			nop
@@ -106,4 +107,5 @@ send_common:
 		       	rjmp	send_1
 
 finished:
+			out	SREG, sreg_save				; Restore status register
 		       	ret
