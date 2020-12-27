@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:WS2812B_Controller_Board-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -239,7 +240,6 @@ F 3 "" H 7000 2650 50  0001 C CNN
 	1    7000 2650
 	-1   0    0    -1  
 $EndComp
-Connection ~ 6850 2950
 Wire Wire Line
 	6850 2950 7250 2950
 Wire Wire Line
@@ -251,8 +251,6 @@ Wire Wire Line
 Connection ~ 7200 3250
 Wire Wire Line
 	7200 2900 7200 3250
-Wire Wire Line
-	5000 2950 6850 2950
 Wire Wire Line
 	6100 2800 6350 2800
 NoConn ~ 5000 2550
@@ -307,7 +305,10 @@ Wire Wire Line
 Wire Wire Line
 	6100 2850 6100 2800
 Wire Wire Line
-	5000 2750 5600 2750
-Wire Wire Line
 	5600 2750 5600 3450
+Wire Wire Line
+	5000 2750 5600 2750
+Connection ~ 6850 2950
+Wire Wire Line
+	5000 2950 6850 2950
 $EndSCHEMATC

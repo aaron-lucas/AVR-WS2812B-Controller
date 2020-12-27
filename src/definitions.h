@@ -28,7 +28,7 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-#define DATA_PIN    3
+#define DATA_PIN    2
 #define BUTTON_PIN  4
 
 #define NUM_LEDS    120

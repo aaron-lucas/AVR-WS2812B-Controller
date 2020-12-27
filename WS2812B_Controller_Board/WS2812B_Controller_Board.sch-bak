@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:WS2812B_Controller_Board-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -53,18 +54,18 @@ F 3 "" H 2250 2150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3450 1400 3800 1400
+	3450 1200 3800 1200
 Wire Wire Line
-	3800 1400 3800 1250
+	3800 1200 3800 1050
 $Comp
 L power:+5V #PWR01
 U 1 1 5FD45835
-P 3800 1250
-F 0 "#PWR01" H 3800 1100 50  0001 C CNN
-F 1 "+5V" H 3815 1423 50  0000 C CNN
-F 2 "" H 3800 1250 50  0001 C CNN
-F 3 "" H 3800 1250 50  0001 C CNN
-	1    3800 1250
+P 3800 1050
+F 0 "#PWR01" H 3800 900 50  0001 C CNN
+F 1 "+5V" H 3815 1223 50  0000 C CNN
+F 2 "" H 3800 1050 50  0001 C CNN
+F 3 "" H 3800 1050 50  0001 C CNN
+	1    3800 1050
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -169,17 +170,17 @@ Wire Wire Line
 $Comp
 L Switch:SW_SPDT SW1
 U 1 1 5FD4EA2C
-P 3250 1300
-F 0 "SW1" H 3250 1585 50  0000 C CNN
-F 1 "SW_SPDT" H 3250 1494 50  0000 C CNN
-F 2 "Switches:SPDT_Toggle_Switch_Jaycar_ST0546" H 3250 1300 50  0001 C CNN
-F 3 "~" H 3250 1300 50  0001 C CNN
-	1    3250 1300
-	1    0    0    -1  
+P 3250 1200
+F 0 "SW1" H 3250 875 50  0000 C CNN
+F 1 "SW_SPDT" H 3250 966 50  0000 C CNN
+F 2 "Switches:SPDT_Toggle_Switch_Jaycar_ST0546" H 3250 1200 50  0001 C CNN
+F 3 "~" H 3250 1200 50  0001 C CNN
+	1    3250 1200
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	3050 1300 2550 1300
-NoConn ~ 3450 1200
+NoConn ~ 3050 1100
 $Comp
 L power:GND #PWR05
 U 1 1 5FD5735A
@@ -239,7 +240,6 @@ F 3 "" H 7000 2650 50  0001 C CNN
 	1    7000 2650
 	-1   0    0    -1  
 $EndComp
-Connection ~ 6850 2950
 Wire Wire Line
 	6850 2950 7250 2950
 Wire Wire Line
@@ -251,8 +251,6 @@ Wire Wire Line
 Connection ~ 7200 3250
 Wire Wire Line
 	7200 2900 7200 3250
-Wire Wire Line
-	5000 2950 6850 2950
 Wire Wire Line
 	6100 2800 6350 2800
 NoConn ~ 5000 2550
@@ -307,7 +305,14 @@ Wire Wire Line
 Wire Wire Line
 	6100 2850 6100 2800
 Wire Wire Line
-	5000 2750 5600 2750
+	5600 3450 5600 2950
 Wire Wire Line
-	5600 2750 5600 3450
+	5600 2950 5000 2950
+Wire Wire Line
+	6850 2950 5850 2950
+Wire Wire Line
+	5850 2950 5850 2750
+Wire Wire Line
+	5850 2750 5000 2750
+Connection ~ 6850 2950
 $EndSCHEMATC
