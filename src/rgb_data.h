@@ -29,6 +29,7 @@
 #define RGB_DATA_H
 
 #include <stdint.h>
+#include <avr/pgmspace.h>
 
 #define NUM_COLORS  9
 
@@ -36,18 +37,10 @@
                                                 .red   = (uint8_t)((x & 0x00FF0000) >> 16),  \
                                                 .blue  = (uint8_t) (x & 0x000000FF) }
 
-#define     RGB_OF(c) colors[c]
-
 struct rgb_data {
     uint8_t green;
     uint8_t red;
     uint8_t blue;
-};
-
-struct hsv_data {
-    uint16_t hue;
-    uint8_t saturation;
-    uint8_t value;
 };
 
 enum color {
@@ -62,12 +55,6 @@ enum color {
     COLOR_WHITE
 };
 
-const struct rgb_data colors[NUM_COLORS];
-
-struct hsv_data rgb_to_hsv(struct rgb_data rgb);
-
-struct rgb_data hsv_to_rgb(struct hsv_data hsv);
-
-struct rgb_data combine_colors(struct rgb_data c1, struct rgb_data c2, uint8_t weight);
+struct rgb_data get_rgb(enum color c);
 
 #endif

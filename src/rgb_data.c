@@ -40,7 +40,7 @@ static inline void swap(uint8_t *a, uint8_t *b) {
     *b = temp;
 }
 
-const struct rgb_data colors[NUM_COLORS] = {
+const struct rgb_data colors[NUM_COLORS] PROGMEM = {
     HEX_TO_RGB(0xC00000),       // RED
     HEX_TO_RGB(0xFF2000),       // ORANGE
     HEX_TO_RGB(0xEA5200),       // YELLOW
@@ -52,35 +52,9 @@ const struct rgb_data colors[NUM_COLORS] = {
     HEX_TO_RGB(0x867565)        // WHITE
 };
 
-/* struct hsv_data rgb_to_hsv(struct rgb_data rgb) { */
-/*     uint8_t *c_max = &rgb.red; */
-/*     uint8_t *c_mid = &rgb.green; */
-/*     uint8_t *c_min = &rgb.blue; */
+struct rgb_data get_rgb(enum color c) {
+    struct rgb_data rgb;
+    memcpy_P(&rgb, &colors[c], sizeof(struct rgb_data));
 
-/*     if (*c_mid < *c_min) */
-/*         swap(c_mid, c_min); */
-/*     if (*c_max < *c_min) */
-/*         swap(c_max, c_min); */
-/*     if (*c_max < *c_mid) */
-/*         swap(c_max, c_mid); */
-
-/*     uint8_t delta = *c_max - *c_min; */
-
-/*     struct hsv_data hsv; */
-/*     if (delta == 0) { */
-/*         hsv.hue = 0; */
-/*     } else if (*c_max == rgb.red) { */
-/*         hsv.hue = (uint16_t)(rgb.green - rgb.blue); */
-/*     } */
-    
-/* } */
-
-/* struct rgb_data combine_colors(struct rgb_data c1, struct rgb_data c2, uint8_t weight) { */
-/*     struct rgb_data delta = { */
-/*         .green = difference(c1.green, c2.green), */
-/*         .red = difference(c1.red, c2.red), */
-/*         .blue = difference(c1.blue, c2.blue) */
-/*     }; */
-
-    
-/* } */
+    return rgb;
+}

@@ -60,7 +60,7 @@ DEPENDS   	:= $(patsubst $(SRC)/%.c,$(OBJ)/%.d,$(SOURCES)) $(patsubst $(SRC)/%.S
 # -----------------------------------------------------------------------------
 
 AVRDUDE = avrdude -c $(PROGRAMMER) -p $(DEVICE)
-COMPILE = avr-gcc -Wall -O2 -MMD -MP -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
+CFLAGS  = -Wall -Werror -Wextra -O2 -MMD -MP -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -fshort-enums
 
 .PRECIOUS: $(SRC)/update_leds.S		# Prevent .S file from being automatically deleted
 .PHONY: all clean
@@ -79,18 +79,18 @@ all:	ws2812b_control
 
 # From C
 $(OBJ)/%.o: $(SRC)/%.c Makefile | obj
-	$(COMPILE) -c $< -o $@
+	avr-gcc $(CFLAGS) -c $< -o $@
 
 # From assembly
 $(OBJ)/%.o: $(SRC)/%.S Makefile | obj
-	$(COMPILE) -O0 -x assembler-with-cpp -c $< -o $@
+	avr-gcc $(CFLAGS) -O0 -x assembler-with-cpp -c $< -o $@
 
 # -----------------------------------------------------------------------------
 # Generate Executables
 # -----------------------------------------------------------------------------
 
 $(BIN)/ws2812b_control.elf: $(OBJECTS) | bin
-	$(COMPILE) -o $(BIN)/ws2812b_control.elf $(OBJECTS)
+	avr-gcc $(CFLAGS) -o $(BIN)/ws2812b_control.elf $(OBJECTS)
 
 ws2812b_control: $(BIN)/ws2812b_control.elf | bin
 	rm -f $(BIN)/ws2812b_control.hex
@@ -111,6 +111,15 @@ fuse:
 
 # Flash and set fuse bit of the AVR with one command
 install: flash fuse
+
+# -----------------------------------------------------------------------------
+# Debugging Rules (when ICSP is always connected)
+# -----------------------------------------------------------------------------
+
+debug: CFLAGS += -DDEBUG -fstack-usage
+debug: all
+
+test: debug install
 
 # -----------------------------------------------------------------------------
 # Generate Missing Directories

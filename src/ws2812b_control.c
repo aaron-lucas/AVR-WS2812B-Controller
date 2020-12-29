@@ -43,12 +43,11 @@ extern void update_leds(struct rgb_data *colors);
 // Collection of LED byte data
 static struct rgb_data led_buffer[NUM_LEDS] = { 0 };
 static inline void set_led(uint8_t led, enum color c) {
-    led_buffer[led] = RGB_OF(c);
+    led_buffer[led] = get_rgb(c);
 }
 
 static volatile enum pattern led_pattern;
 static void show_next_pattern(void);
-
 
 int main(void) {
     // Hardware setup

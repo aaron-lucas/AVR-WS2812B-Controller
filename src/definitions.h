@@ -28,10 +28,19 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-#define DATA_PIN    2
+// In debug mode, an in-system programmer is used which utlises pins 0, 1, 2 and
+// 5. The ICSP is not used on the PCB where pin 2 is preferred for layout
+// purposes.
+/* #define DEBUG */
+#ifdef DEBUG
+#   define DATA_PIN    3
+#else
+#   define DATA_PIN    2
+#endif
+
 #define BUTTON_PIN  4
 
-#define NUM_LEDS    120
+#define NUM_LEDS    150
 
 #define NUM_BYTES   3 * NUM_LEDS
 

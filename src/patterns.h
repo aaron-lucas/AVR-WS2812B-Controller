@@ -56,15 +56,15 @@ void show_solid_color(struct rgb_data *leds, enum color c);
 
 void show_solid_rgb(struct rgb_data *leds, struct rgb_data rgb);
 
-#define UPDATE_TICKS_CSC    7 * UPDATE_FREQ
-#define NUM_CYCLE_COLORS    9
-void cycle_colors(struct rgb_data *leds, enum color *order, uint8_t num_colors, bool reset);
+#define UPDATE_TICKS_CSC    7 * UPDATE_FREQ     // Change color every 7 seconds
+#define NUM_CYCLE_COLORS    9                   // 9 colors to cycle through
+void cycle_colors(struct rgb_data *leds, enum color *order, bool reset);
 
-#define UPDATE_TICKS_RC     4
+#define UPDATE_TICKS_RC     4                   // Change color every 4 * 10ms ticks (40ms -> 25Hz)
 #define INITIAL_SEED_RC     0x69
 void random_colors(struct rgb_data *leds);
 
-#define UPDATE_TICKS_RF     2
+#define UPDATE_TICKS_RF     2                   // Change color every 2 * 10ms ticks (20ms -> 50Hz)
 void rainbow_fade(struct rgb_data *leds, bool reset);
 
 #endif
