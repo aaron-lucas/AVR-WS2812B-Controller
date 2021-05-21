@@ -6,3 +6,4 @@ tags
 .syntastic_c_config
 bin/*
 obj/*
+fp-info-cache

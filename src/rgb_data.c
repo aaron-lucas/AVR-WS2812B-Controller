@@ -43,13 +43,13 @@ static inline void swap(uint8_t *a, uint8_t *b) {
 const struct rgb_data colors[NUM_COLORS] PROGMEM = {
     HEX_TO_RGB(0xC00000),       // RED
     HEX_TO_RGB(0xFF2000),       // ORANGE
-    HEX_TO_RGB(0xEA5200),       // YELLOW
+    HEX_TO_RGB(0xBA5200),       // YELLOW
     HEX_TO_RGB(0x206000),       // GREEN
     HEX_TO_RGB(0x001080),       // BLUE
-    HEX_TO_RGB(0x6E00FF),       // PURPLE
-    HEX_TO_RGB(0xFF009A),       // PINK
+    HEX_TO_RGB(0x6E00B0),       // PURPLE
+    HEX_TO_RGB(0xB8006A),       // PINK
     HEX_TO_RGB(0x00777A),       // CYAN
-    HEX_TO_RGB(0x867565)        // WHITE
+    HEX_TO_RGB(0x5A5A5A)        // WHITE
 };
 
 struct rgb_data get_rgb(enum color c) {
